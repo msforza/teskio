@@ -1,0 +1,40 @@
+name: Build ZTOR Windows Extractor
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'windows_extractor/**'
+      - '.github/workflows/build-windows-extractor.yml'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r windows_extractor/requirements.txt
+
+      - name: Build EXE
+        shell: pwsh
+        run: |
+          cd windows_extractor
+          pyinstaller --clean --noconfirm --onefile --windowed --name ZTOR_Exhibitor_Intelligence app.py
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: ZTOR-Exhibitor-Intelligence-Windows
+          path: windows_extractor/dist/ZTOR_Exhibitor_Intelligence.exe
+          if-no-files-found: error
+          retention-days: 30
