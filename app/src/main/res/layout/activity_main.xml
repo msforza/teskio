@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F7F9">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ZTOR KEY MAN ENGINE"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="#111111"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v0.3 — Account Intelligence"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="20dp"/>
+        <EditText
+            android:id="@+id/companyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Company name"/>
+        <EditText
+            android:id="@+id/domain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Domain (e.g. company.com)"
+            android:inputType="textUri"/>
+        <Button
+            android:id="@+id/analyzeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Analyze"
+            android:layout_marginTop="12dp"/>
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"/>
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#111111"
+            android:textSize="15sp"
+            android:layout_marginTop="18dp"
+            android:textIsSelectable="true"/>
+    </LinearLayout>
+</ScrollView>
